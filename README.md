@@ -1,4 +1,11 @@
 # LLM+P: Empowering Large Language Models with Optimal Planning Proficiency
+
+> ***Note**: We have added some files based on this project to improve usability.*
+
+- LLM_P.py： Provides task planning function for llm+pddl submodules.
+- install.md: More detailed installation process based on the original project.
+- __init__.py: Define the interface that the submodule can call.
+
 This repo contains the source code for making plans based on problems decribed by natural language.
 
 ## Dependency
