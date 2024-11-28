@@ -4,7 +4,7 @@ import os
 import subprocess
 import time
 
-from main import *
+from src import *
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="LLM-Planner")

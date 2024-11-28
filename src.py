@@ -169,7 +169,7 @@ class Planner:
         with open(openai_keys_file, "r") as f:
             context = f.read()
         context_lines = context.strip().split('\n')
-        print(context_lines)
+        # print(context_lines)
         return context_lines
 
     def create_llm_prompt(self, task_nl, domain_nl):
@@ -268,7 +268,7 @@ class Planner:
                 return ""
             candidates_prompt = self.create_llm_tot_ic_prompt(task_nl, domain_nl, context, plan)
             candidates = self.query(candidates_prompt).strip()
-            print (candidates)
+            # print (candidates)
             lines = candidates.split('\n')
             for line in lines:
                 if time.time() - start_time > time_left:
@@ -277,8 +277,8 @@ class Planner:
                     new_plan = plan + "\n" + line
                     value_prompt = self.create_llm_tot_ic_value_prompt(task_nl, domain_nl, context, new_plan)
                     answer = self.query(value_prompt).strip().lower()
-                    print(new_plan)
-                    print("Response \n" + answer)
+                    # print(new_plan)
+                    # print("Response \n" + answer)
 
                     if "reached" in answer:
                         return new_plan
@@ -373,12 +373,13 @@ class Planner:
                     break
             except Exception as e:
                 server_cnt += 1
-                print(e)
+                # print(e)
         return result_text
 
     def update_key(self):
         curr_key = self.openai_api_keys[0]
         openai.api_key = curr_key
+        openai.api_base="https://xiaoai.plus/v1"
         self.openai_api_keys.remove(curr_key)
         self.openai_api_keys.append(curr_key)
 
