@@ -4,7 +4,6 @@ data/openai_keys.txt
 sas_plan
 Condor*
 *.pyc
-downward
 openai-quickstart-node/
 trainlogs
 clean.sh
